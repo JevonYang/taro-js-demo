@@ -1,11 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { AtInput } from 'taro-ui'
 
 import { add, minus, asyncAdd } from '../../actions/counter'
 
-import 'taro-ui/dist/style/index.scss'
 import './index.scss'
 
 

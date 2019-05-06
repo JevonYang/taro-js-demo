@@ -1,12 +1,10 @@
 import Taro, {Component} from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { AtInput, AtButton } from 'taro-ui'
+import { AtInput, AtButton, AtList, AtListItem } from 'taro-ui'
 import { add_todo } from '../../actions/todo'
 
-import 'taro-ui/dist/style/index.scss'
 import './index.scss'
-
 
 
 @connect(({ todo }) => ({
@@ -16,7 +14,7 @@ import './index.scss'
         dispatch(add_todo(text))
     }
 }))
-export default class Todo extends Component{
+class Todo extends Component{
 
     config = {
         navigationBarTitleText: 'Todo List'
@@ -39,7 +37,11 @@ export default class Todo extends Component{
     handleClick () {
         console.log("clicked")
         const { text } = this.state;
-        this.props.add(text)
+        const {add} = this.props;
+        add(text)
+        this.setState({
+            text: ''
+        })
     }
 
     render() {
@@ -50,20 +52,25 @@ export default class Todo extends Component{
             <View>
                 <AtInput
                     name='value'
-                    // title='标准五个字'
+                    title='输入'
                     type='text'
-                    // placeholder='标准五个字'
+                    placeholder='请输入内容'
                     value={text}
                     onChange={this.handleChange.bind(this)}
                 />
-                <AtButton onClick={this.handleClick.bind(this)}>添加</AtButton>
-                <ul>
-                { Array.isArray(todo.list) && todo.list.map(item => {
-                    return (<li>{item}</li>)
+                <AtButton type='primary' size='normal' onClick={this.handleClick.bind(this)}>添加</AtButton>
+                <AtList>
+                    { 
+                        Array.isArray(todo.list) && todo.list.map(item => {
+                            return (
+                                <AtListItem title={item} />
+                            )
                 })}
-                </ul>
+                </AtList>
             </View>
         )
     }
 
 }
+
+export default Todo

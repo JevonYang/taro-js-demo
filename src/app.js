@@ -7,7 +7,7 @@ import Index from './pages/index'
 import configStore from './store'
 
 import './app.scss'
-// import 'taro-ui/dist/style/index.scss'
+
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -24,6 +24,28 @@ class App extends Component {
       'pages/index/index',
       'pages/Todo/index'
     ],
+    tabBar: {
+      list: [{
+        'iconPath': 'resource/latest.png',
+        'selectedIconPath': 'resource/lastest_on.png',
+        pagePath: 'pages/index/index',
+        text: '最新'
+      }, {
+        'iconPath': 'resource/hotest.png',
+        'selectedIconPath': 'resource/hotest_on.png',
+        pagePath: 'pages/Todo/index',
+        text: '热门'
+      }, {
+        'iconPath': 'resource/node.png',
+        'selectedIconPath': 'resource/node_on.png',
+        pagePath: 'pages/Todo/index',
+        text: '节点'
+      }],
+      'color': '#000',
+      'selectedColor': '#56abe4',
+      'backgroundColor': '#fff',
+      'borderStyle': 'white'
+    },
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',

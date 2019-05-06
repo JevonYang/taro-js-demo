@@ -1,8 +1,8 @@
 {
-	"miniprogramRoot": "./dist",
+	"miniprogramRoot": "dist/",
 	"projectname": "taro-js-demo",
 	"description": "taro-js-demo",
-	"appid": "touristappid",
+	"appid": "wxbc1a026abfa9c84b",
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
